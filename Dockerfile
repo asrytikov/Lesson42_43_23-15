@@ -1,7 +1,7 @@
 #stage build
 FROM openjdk:21-slim as build
 LABEL mainteiner="asrytikov"
-ARG JAR_FILE
+ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf /app.jar)
 
